@@ -7,6 +7,57 @@
         mc:Ignorable="d"
         Title="StudioWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Studio"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <ListBox ItemsSource="{Binding Studios}" SelectedItem="{Binding SelectedStudio}" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label ContentStringFormat="Name: {0}" Content="{Binding Name}"/>
+                            <Label ContentStringFormat="StudioID: {0}" Content="{Binding StudioID}"/>
+                            <Label ContentStringFormat="CEO Name: {0}" Content="{Binding CEOName}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <StackPanel Grid.Column="1" Margin="0,30,0,30">
+
+                <Button Content="Delete" Margin="0,10,0,10" Command="{Binding Delete}"/>
+                <TextBox Text="{Binding ReadID}"/>
+                <Button Content="Read" Margin="0,10,0,10" Command="{Binding Read}"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Name:"/>
+                    <TextBox Width="50" Text="{Binding CreateName}"/>
+                    <Label Content="CEO's name:"/>
+                    <TextBox Width="50" Text="{Binding CreateCEOName}"/>
+                    
+                    
+                </StackPanel>
+                <Button Content="Create" Margin="0,10,0,0" Command="{Binding Create}"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Name:"/>
+                    <TextBox Width="50" Text="{Binding UpdateName}"/>
+                    <Label Content="CEO's name:"/>
+                    <TextBox Width="50" Text="{Binding Updateceoname}"/>
+                    <Label Content="Studio ID:"/>
+                    <TextBox Width="50" Text="{Binding UpdateStudioId}"/>
+                    
+                </StackPanel>
+                <Button Content="Update" Margin="0,10,0,0" Command="{Binding Update}"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label ContentStringFormat="Name: {0}" Content="{Binding ReadName}"/>
+                    <Label ContentStringFormat="Year: {0}" Content="{Binding ReadYear}" />
+                    <Label ContentStringFormat="GameID: {0}" Content="{Binding ReadGameId}" />
+                    <Label ContentStringFormat="ReqID: {0}" Content="{Binding ReadReqId}" />
+                    <Label ContentStringFormat="StudioID: {0}" Content="{Binding ReadStudioId}" />
+
+                </StackPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

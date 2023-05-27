@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WPF_Client.ViewModels;
 
 namespace WPF_Client.Windows
 {
@@ -22,6 +24,7 @@ namespace WPF_Client.Windows
         public StudioWindow()
         {
             InitializeComponent();
+            this.DataContext = App.Current.Services.GetService<StudioWindowViewModel>();
         }
     }
 }
