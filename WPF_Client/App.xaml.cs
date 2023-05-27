@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WPF_Client.Logic;
 using WPF_Client.ViewModels;
 
 namespace WPF_Client
@@ -27,6 +28,7 @@ namespace WPF_Client
         {
             var services = new ServiceCollection();
             services.AddSingleton<MainWindowViewModel>();
+            services.AddTransient<IMainMenuLogic, MainMenuLogic>();
 
             return services.BuildServiceProvider();
         }

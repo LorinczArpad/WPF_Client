@@ -15,10 +15,10 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="1" Margin="0,70,0,70">
-            <Button Margin="0,15,0,15" Padding="10,10,10,10" Content="Game"/>
-            <Button Margin="0,15,0,15" Padding="10,10,10,10" Content="Studio"/>
-            <Button Margin="0,15,0,15" Padding="10,10,10,10" Content="Minrequ"/>
-            <Button Margin="0,15,0,15" Padding="10,10,10,10" Content="Stat"/> 
+            <Button Margin="0,15,0,15" Padding="10,10,10,10" Content="Game" Command="{Binding OpenGameM}"/>
+            <Button Margin="0,15,0,15" Padding="10,10,10,10" Content="Studio" Command="{Binding OpenStudioM}"/>
+            <Button Margin="0,15,0,15" Padding="10,10,10,10" Content="Minrequ" Command="{Binding  OpenMinRequirementsM}"/>
+            <Button Margin="0,15,0,15" Padding="10,10,10,10" Content="Stat" Command="{Binding OpenStatM}"/> 
         </StackPanel>
 
 
