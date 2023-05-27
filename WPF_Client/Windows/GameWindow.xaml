@@ -15,13 +15,19 @@
         <ListBox ItemsSource="{Binding Games}" SelectedItem="{Binding SelectedGame}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Name}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label ContentStringFormat="Name: {0}" Content="{Binding Name}"/>
+                        <Label  ContentStringFormat="GameID: {0}" Content="{Binding GameID}"/>
+                        <Label  ContentStringFormat="Year: {0}" Content="{Binding Pyear}"/>
+                        <Label  ContentStringFormat="StudioID: {0}" Content="{Binding StudioId}"/>
+                        <Label  ContentStringFormat="ReqID: {0}" Content="{Binding ReqId}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         
         <StackPanel Grid.Column="1" Margin="0,30,0,30">
-            <Button Content="ReadAll" Margin="0,10,0,10"/>
+            
             <Button Content="Delete" Margin="0,10,0,10" Command="{Binding Delete}"/>
             <TextBox Text="{Binding ReadID}"/>
             <Button Content="Read" Margin="0,10,0,10" Command="{Binding Read}"/>
@@ -48,11 +54,11 @@
             </StackPanel>
             <Button Content="Update" Margin="0,10,0,0" Command="{Binding Update}"/>
             <StackPanel Orientation="Horizontal">
-                <Label Content="{Binding ReadName}"/>
-                <Label Content="{Binding ReadYear}" />
-                <Label Content="{Binding ReadGameId}" />
-                <Label Content="{Binding ReadReqId}" />
-                <Label Content="{Binding ReadStudioId}" />
+                <Label ContentStringFormat="Name: {0}" Content="{Binding ReadName}"/>
+                <Label ContentStringFormat="Year: {0}" Content="{Binding ReadYear}" />
+                <Label ContentStringFormat="GameID: {0}" Content="{Binding ReadGameId}" />
+                <Label ContentStringFormat="ReqID: {0}" Content="{Binding ReadReqId}" />
+                <Label ContentStringFormat="StudioID: {0}" Content="{Binding ReadStudioId}" />
                 
             </StackPanel>
         </StackPanel>
