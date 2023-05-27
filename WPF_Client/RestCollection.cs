@@ -308,23 +308,23 @@ namespace WPF_Client
                         }
                         else
                         {
-                            Init();
+                            Init(endpoint);
                         }
 
                     });
                     this.notify.AddHandler<T>(type.Name + "Updated", (T item) =>
                     {
-                        Init();
+                        Init(endpoint);
                     });
 
                     this.notify.Init();
                 }
-                Init();
+                Init(endpoint);
             }
 
-            private async Task Init()
+            private async Task Init(string endpoint)
             {
-                items = await rest.GetAsync<T>(typeof(T).Name);
+                items = await rest.GetAsync<T>(endpoint);
                 CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
             }
 
@@ -356,7 +356,7 @@ namespace WPF_Client
                 {
                     this.rest.PostAsync(item, control).ContinueWith((t) =>
                     {
-                        Init().ContinueWith(z =>
+                        Init(control).ContinueWith(z =>
                         {
                             Application.Current.Dispatcher.Invoke(() =>
                             {
@@ -378,7 +378,7 @@ namespace WPF_Client
                 {
                     this.rest.PutAsync(item, control).ContinueWith((t) =>
                     {
-                        Init().ContinueWith(z =>
+                        Init(control).ContinueWith(z =>
                         {
                             Application.Current.Dispatcher.Invoke(() =>
                             {
@@ -399,7 +399,7 @@ namespace WPF_Client
                 {
                     this.rest.DeleteAsync(id, control).ContinueWith((t) =>
                     {
-                        Init().ContinueWith(z =>
+                        Init(control).ContinueWith(z =>
                         {
                             Application.Current.Dispatcher.Invoke(() =>
                             {

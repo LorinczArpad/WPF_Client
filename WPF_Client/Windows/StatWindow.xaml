@@ -7,6 +7,38 @@
         mc:Ignorable="d"
         Title="StatWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Stat"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Grid.Column="0" ItemsSource="{Binding GameResults }">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label ContentStringFormat="Name: {0}" Content="{Binding Name}"/>
+                        <Label  ContentStringFormat="GameID: {0}" Content="{Binding GameID}"/>
+                        <Label  ContentStringFormat="Year: {0}" Content="{Binding Pyear}"/>
+                        <Label  ContentStringFormat="StudioID: {0}" Content="{Binding StudioId}"/>
+                        <Label  ContentStringFormat="ReqID: {0}" Content="{Binding ReqId}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Grid.Column="1" ItemsSource="{Binding Results}">
+        </ListBox>
+        <StackPanel Grid.Column="2" >
+            <Button Content="Games with studios" Command="{Binding GamesWithStudios}" Margin="0,10,0,10"/>
+            <TextBox Text="{Binding SCPU}"/>
+            <Button Content="Games with this CPU" Command="{Binding GamesWithThisCPU}" Margin="0,10,0,10"/>
+            <TextBox Text="{Binding SStudio}"/>
+            <Button Content="Games with this Studio" Command="{Binding GamesWithThisStudio}" Margin="0,10,0,10"/>
+            <TextBox Text="{Binding SYear}"/>
+            <Button Content="Games by Year" Command="{Binding ReleaseYearSearch}" Margin="0,10,0,10"/>
+
+            <Button Content="Games with Requirements" Command="{Binding GamesWithRequirements}" Margin="0,10,0,10"/>
+            <Button Content="Games with studios and requirements" Command="{Binding ReleaseYearSearch}" Margin="0,10,0,10"/>
+
+        </StackPanel>
     </Grid>
 </Window>

@@ -31,6 +31,7 @@ namespace WPF_Client
             services.AddSingleton<MinRequirementsViewModel>();
             services.AddSingleton<StudioWindowViewModel>();
             services.AddSingleton<GameWindowViewModel>();
+            services.AddSingleton<StatViewModel>();
 
             services.AddTransient<IMinRequirementsLogic, MinRequirementsLogic>();
             services.AddTransient<IMainMenuLogic, MainMenuLogic>();
