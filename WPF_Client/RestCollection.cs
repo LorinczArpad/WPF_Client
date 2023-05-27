@@ -324,7 +324,7 @@ namespace WPF_Client
 
             private async Task Init()
             {
-                items = await rest.GetAsync<T>("conversation");
+                items = await rest.GetAsync<T>(typeof(T).Name);
                 CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
             }
 

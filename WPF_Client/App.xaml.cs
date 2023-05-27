@@ -28,7 +28,9 @@ namespace WPF_Client
         {
             var services = new ServiceCollection();
             services.AddSingleton<MainWindowViewModel>();
+            services.AddSingleton<GameWindowViewModel>();
             services.AddTransient<IMainMenuLogic, MainMenuLogic>();
+            services.AddTransient<IGameMenuLogic, GameMenuLogic>();
 
             return services.BuildServiceProvider();
         }
