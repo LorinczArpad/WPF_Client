@@ -7,6 +7,54 @@
         mc:Ignorable="d"
         Title="MinRequirementsWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="MinRequ"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <ListBox ItemsSource="{Binding MinReques}" SelectedItem="{Binding SelectedMinReq}" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label ContentStringFormat="GPU: {0}" Content="{Binding GPU}"/>
+                            <Label ContentStringFormat="MinreqID: {0}" Content="{Binding ReqId}"/>
+                            <Label ContentStringFormat="CPU: {0}" Content="{Binding CPU}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <StackPanel Grid.Column="1" Margin="0,30,0,30">
+
+                <Button Content="Delete" Margin="0,10,0,10" Command="{Binding Delete}"/>
+                <TextBox Text="{Binding ReadMinreqId}"/>
+                <Button Content="Read" Margin="0,10,0,10" Command="{Binding Read}"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="GPU:"/>
+                    <TextBox Width="50" Text="{Binding CreateGPU}"/>
+                    <Label Content="CPU:"/>
+                    <TextBox Width="50" Text="{Binding CreateCPU}"/>
+
+
+                </StackPanel>
+                <Button Content="Create" Margin="0,10,0,0" Command="{Binding Create}"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="CPU:"/>
+                    <TextBox Width="50" Text="{Binding UpdateCPU}"/>
+                    <Label Content="GPU:"/>
+                    <TextBox Width="50" Text="{Binding UpdateGPU}"/>
+
+
+                </StackPanel>
+                <Button Content="Update" Margin="0,10,0,0" Command="{Binding Update}"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label ContentStringFormat="CPU: {0}" Content="{Binding ReadCPU}"/>
+                    <Label ContentStringFormat="GPU: {0}" Content="{Binding ReadGPU}" />
+                    <Label ContentStringFormat="MinReqId: {0}" Content="{Binding ReadMinreqId}" />
+
+                </StackPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
