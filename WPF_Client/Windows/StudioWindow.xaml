@@ -28,7 +28,7 @@
             <StackPanel Grid.Column="1" Margin="0,30,0,30">
 
                 <Button Content="Delete" Margin="0,10,0,10" Command="{Binding Delete}"/>
-                <TextBox Text="{Binding ReadID}"/>
+                <TextBox Text="{Binding ReadStudioId}"/>
                 <Button Content="Read" Margin="0,10,0,10" Command="{Binding Read}"/>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Name:"/>
@@ -44,16 +44,13 @@
                     <TextBox Width="50" Text="{Binding UpdateName}"/>
                     <Label Content="CEO's name:"/>
                     <TextBox Width="50" Text="{Binding Updateceoname}"/>
-                    <Label Content="Studio ID:"/>
-                    <TextBox Width="50" Text="{Binding UpdateStudioId}"/>
+                    
                     
                 </StackPanel>
                 <Button Content="Update" Margin="0,10,0,0" Command="{Binding Update}"/>
                 <StackPanel Orientation="Horizontal">
                     <Label ContentStringFormat="Name: {0}" Content="{Binding ReadName}"/>
-                    <Label ContentStringFormat="Year: {0}" Content="{Binding ReadYear}" />
-                    <Label ContentStringFormat="GameID: {0}" Content="{Binding ReadGameId}" />
-                    <Label ContentStringFormat="ReqID: {0}" Content="{Binding ReadReqId}" />
+                    <Label ContentStringFormat="CEO's name: {0}" Content="{Binding ReadCEOName}" />
                     <Label ContentStringFormat="StudioID: {0}" Content="{Binding ReadStudioId}" />
 
                 </StackPanel>

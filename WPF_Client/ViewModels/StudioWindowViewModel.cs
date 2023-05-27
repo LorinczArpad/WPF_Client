@@ -3,6 +3,7 @@ using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -29,8 +30,13 @@ namespace WPF_Client.ViewModels
         public string UpdateStudioId { get { return updatestudioid; } set { SetProperty(ref updatestudioid, value); } }
         public string updateceoname;
         public string Updateceoname { get { return updateceoname; } set { SetProperty(ref updateceoname, value); } }
-
-
+        //Read
+        private string readstudid;
+        public string ReadStudioId { get { return readstudid; } set { SetProperty(ref readstudid, value); } }
+        private string readname;
+        public string ReadName { get { return readname; } set { SetProperty(ref readname, value); } }
+        private string readceoname;
+        public string ReadCEOName { get { return readceoname; } set { SetProperty(ref readceoname, value); } }
 
         private Studio selectedstudio;
         public Studio SelectedStudio { get { return selectedstudio; } set
@@ -53,6 +59,19 @@ namespace WPF_Client.ViewModels
                );
             Update = new RelayCommand(
                 ()=> logic.Update(new Studio(UpdateName,  int.Parse(UpdateStudioId), Updateceoname), Studios)
+                );
+            Delete = new RelayCommand(
+                ()=> logic.Delete(SelectedStudio.StudioID,Studios)
+                );
+            Read = new RelayCommand(
+                ()=> { var studio = logic.Read(int.Parse(ReadStudioId), Studios);
+                    ReadStudioId = studio.StudioID.ToString();
+                    ReadName = studio.Name;
+                    ReadCEOName = studio.CEOName;
+
+
+
+                }
                 );
         }
     }
