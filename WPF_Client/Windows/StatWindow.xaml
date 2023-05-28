@@ -37,7 +37,7 @@
             <Button Content="Games by Year" Command="{Binding ReleaseYearSearch}" Margin="0,10,0,10"/>
 
             <Button Content="Games with Requirements" Command="{Binding GamesWithRequirements}" Margin="0,10,0,10"/>
-            <Button Content="Games with studios and requirements" Command="{Binding ReleaseYearSearch}" Margin="0,10,0,10"/>
+            <Button Content="Games with studios and requirements" Command="{Binding GamesWithStudiosAndRequirements}" Margin="0,10,0,10"/>
 
         </StackPanel>
     </Grid>
