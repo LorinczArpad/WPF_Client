@@ -39,21 +39,21 @@ namespace WPF_Client.ViewModels
             GamesWithRequirements = new RelayCommand(
                 () => {
 
-                    this.Results = new RestCollection<string>("http://localhost:60949/", "Stat/GamesWithRequirements");
+                    this.Results = new RestCollection<string>("http://localhost:60949/", "Stat/GamesWithRequirements", "hub");
                 }
 
                 );
             GamesWithStudiosAndRequirements = new RelayCommand(
                 () => {
 
-                    this.Results = new RestCollection<string>("http://localhost:60949/", "Stat/GamesWithStudiosAndRequirements");
+                    this.Results = new RestCollection<string>("http://localhost:60949/", "Stat/GamesWithStudiosAndRequirements", "hub");
                 }
 
                 );
             GamesWithStudios = new RelayCommand(
                 () => {
 
-                    this.Results = new RestCollection<string>("http://localhost:60949/", "Stat/GamesWithStudios");
+                    this.Results = new RestCollection<string>("http://localhost:60949/", "Stat/GamesWithStudios", "hub");
                 }
 
                 );
@@ -62,14 +62,14 @@ namespace WPF_Client.ViewModels
             ReleaseYearSearch  = new RelayCommand(
                 () => {
 
-                    this.GameResults = new RestCollection<Game>("http://localhost:60949/", "Stat/ReleaseYearSearch/" + SYear);
+                    this.GameResults = new RestCollection<Game>("http://localhost:60949/", "Stat/ReleaseYearSearch/" + SYear,"hub");
                 }
 
                 );
             GamesWithThisStudio = new RelayCommand(
                 () => {
 
-                    this.GameResults = new RestCollection<Game>("http://localhost:60949/", "Stat/GamesWithThisStudio/" + SStudio);
+                    this.GameResults = new RestCollection<Game>("http://localhost:60949/", "Stat/GamesWithThisStudio/" + SStudio, "hub");
                 }
 
                 );
@@ -77,12 +77,12 @@ namespace WPF_Client.ViewModels
             GamesWithThisCPU = new RelayCommand(
                 () => {
                    
-                    this.GameResults = new RestCollection<Game>("http://localhost:60949/", "Stat/GamesWithThisCPU/" + SCPU); }
+                    this.GameResults = new RestCollection<Game>("http://localhost:60949/", "Stat/GamesWithThisCPU/" + SCPU, "hub"); }
                 
                 );
 
             GamesWithStudios = new RelayCommand(
-                () => { this.Results = new RestCollection<string>("http://localhost:60949/", "Stat/GamesWithStudios"); }
+                () => { this.Results = new RestCollection<string>("http://localhost:60949/", "Stat/GamesWithStudios", "hub"); }
 
                 ) ;
            

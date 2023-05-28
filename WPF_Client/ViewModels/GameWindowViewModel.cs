@@ -86,7 +86,7 @@ namespace WPF_Client.ViewModels
         {
             this.logic = logic;
             this.ReadResult = new Game();
-            this.Games = new RestCollection<Game>("http://localhost:60949/","game");
+            this.Games = new RestCollection<Game>("http://localhost:60949/","game","hub");
             Create = new RelayCommand(
                 ()=>logic.Create(new Game(CreateName,Games.Last().GameID + 1,CreateYear,int.Parse(CreateStudioId), int.Parse(MinRequimentID)),Games)
                 );

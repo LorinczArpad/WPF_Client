@@ -53,7 +53,7 @@ namespace WPF_Client.ViewModels
 
         public StudioWindowViewModel(IStudioWindowLogic logic)
         {
-            Studios = new RestCollection<Studio>("http://localhost:60949/", "studio");
+            Studios = new RestCollection<Studio>("http://localhost:60949/", "studio", "hub");
             Create = new RelayCommand(
                () => logic.Create(new Studio(CreateName,Studios.Last().StudioID + 1,CreateCEOName), Studios)
                );

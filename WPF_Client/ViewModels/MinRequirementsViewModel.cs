@@ -47,7 +47,7 @@ namespace WPF_Client.ViewModels
         public ICommand Read { get; set; }
         public MinRequirementsViewModel(IMinRequirementsLogic logic)
         {
-            MinReques = new RestCollection<MinRequirements>("http://localhost:60949/", "minrequirements");
+            MinReques = new RestCollection<MinRequirements>("http://localhost:60949/", "minrequirements","hub");
             Create = new RelayCommand(
                 ()=> logic.Create(new MinRequirements( MinReques.Last().ReqId  + 1 , CreateCPU, CreateGPU), MinReques)
                 );
